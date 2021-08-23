@@ -1,0 +1,30 @@
+---
+# tasks file for ansible-httpd-roles
+ - name: Installing apache in RedHat
+   yum:
+    name: httpd
+    state: present
+   when: ansible_os_family == "RedHat"
+   notify: install_httpd
+ - name: Installing apache in Debian
+   apt:
+    name: apache2
+    state: present
+   when: ansible_os_family == "Debian"
+   notify: install_apache2
+ - name: Installing Tree package on Redhat
+   yum:
+    name: tree
+    state: present
+   when: ansible_os_family == "RedHat"
+   notify: install_tree
+ - name: Installing Tree package on Debian
+   apt:
+    name: tree
+    state: present
+   when: ansible_os_family == "Debian"
+   notify: install_tree
+ - name: Copying index.html file
+   copy:
+    src: /home/ansadmin/index.html
+    dest: /var/www/html/

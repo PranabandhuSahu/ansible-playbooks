@@ -1,0 +1,20 @@
+---
+- name: Webserver Creation
+  hosts: all
+  become: yes
+  tasks:
+   - name: Installing httpd
+     yum:
+      name: httpd
+      state: installed
+     notify: Starting httpd service
+   - name: Copy Index.html file
+     copy:
+      src: index.html
+      dest: /var/www/html
+  handlers:
+   - name: Starting httpd service
+     service:
+      name: httpd
+      state: started
+      enabled: yes

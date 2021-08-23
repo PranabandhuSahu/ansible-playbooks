@@ -1,0 +1,10 @@
+---
+
+- name: UnInstalling Packages
+  hosts: webservers
+  become: yes
+  tasks:
+  - name: UnInstalling Httpd package
+    yum:
+     name: httpd
+     state: absent

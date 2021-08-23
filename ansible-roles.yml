@@ -1,0 +1,7 @@
+---
+ - name: Ansibe Roles
+   hosts: webservers
+   become: yes
+
+   roles:
+     - ansible-httpd-roles

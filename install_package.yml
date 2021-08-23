@@ -1,0 +1,14 @@
+---
+
+- name: Installing Packages
+  hosts: webservers
+  become: yes
+  tasks:
+  - name: Installing Httpd package
+    yum:
+     name: httpd
+     state: latest
+  - name: Installing Git
+    yum:
+     name: git
+     state: present

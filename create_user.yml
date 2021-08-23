@@ -1,0 +1,7 @@
+---
+- hosts: webservers[0]
+  name: "Creating Users"
+  become: True
+  tasks:
+    - name: "Creating user Lipun"
+      user: name=lipun state=present

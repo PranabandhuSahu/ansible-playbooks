@@ -1,0 +1,13 @@
+---
+- hosts: webservers
+  name: Deleting Directory and File
+  become: yes
+  tasks:
+    - name: Creating directory mydir
+      file:
+       path: home/ansadmin/mydir
+       state: absent
+    - name: Creating file myfile
+      file:
+       path: home/ansadmin/myfile
+       state: absent

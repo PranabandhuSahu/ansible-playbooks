@@ -1,0 +1,7 @@
+---
+- hosts: webservers
+  name: "Deleting Users"
+  become: true
+  tasks:
+    - name: "deleting user Lipun"
+      user: name=lipun state=absent

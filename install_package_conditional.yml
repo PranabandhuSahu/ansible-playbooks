@@ -1,0 +1,27 @@
+---
+
+- name: Installing Apache packages in nodes
+  hosts: webservers
+  become: yes
+  tasks:
+  - name: Installing on RH machine
+    yum:
+     name: httpd
+     state: installed
+    when: ansible_os_family == "RedHat"
+  - name : Stating httpd service
+    service:
+     name: httpd
+     state: started
+    when : ansible_os_family == "RedHat"
+  - name: Installing on Debian  machine
+    yum:
+     name: apache2
+     state: present
+    when: ansible_os_family == "Debian"
+  - name : Stating apache2 service
+    service:
+     name: apache2
+     state: started
+    when : ansible_os_family == "Debian"
+  

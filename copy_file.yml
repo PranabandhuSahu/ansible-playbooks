@@ -1,0 +1,9 @@
+---
+- hosts: all
+  name: Copying file
+  become: True
+  tasks:
+    - name: Copying file1
+      copy:
+       src: file1
+       dest: /home/ansadmin/

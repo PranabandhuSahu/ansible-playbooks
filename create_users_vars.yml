@@ -1,0 +1,13 @@
+---
+
+- name: Creating user using Variables
+  hosts: all
+  become: yes
+
+  vars:
+    username: prinsa
+  tasks:
+  - name: Creating {{username}} from vars
+    user:
+     name: "{{username}}"
+     state: present

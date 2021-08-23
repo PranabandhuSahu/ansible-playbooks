@@ -1,0 +1,22 @@
+---
+# handlers file for ansible-httpd-roles
+ - name: install_httpd
+   service:
+    name: httpd
+    state: started
+    enabled: true
+ 
+ - name: install_apache2
+   service:
+    name: apache2
+    state: started
+    enabled: true
+ - name: install_tree
+   yum:
+    name: tree
+    state: installed
+ - name: install_tree
+   apt:
+    name: tree
+    state: present
+
